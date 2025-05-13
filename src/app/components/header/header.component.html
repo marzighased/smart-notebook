@@ -1,1 +1,14 @@
-<p>header works!</p>
+  <header>
+  <div class="logo">
+    <h1>Smart Notebook</h1>
+  </div>
+  <nav>
+    <a [routerLink]="['/notes']">All Notes</a>
+    <a [routerLink]="['/notes/new']">New Note</a>
+  </nav>
+  <div class="theme-toggle">
+    <button (click)="toggleTheme()">
+      {{ darkMode() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>
+  </div>
+</header>
