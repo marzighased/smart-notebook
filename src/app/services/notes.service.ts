@@ -41,12 +41,18 @@ export class NotesService {
     if (savedNotes) {
       const parsedNotes = JSON.parse(savedNotes);
 
-      const notes = parsedNotes.map((note: any) => ({
-        ...note,
+      const notes = parsedNotes.map((note: any) => ({...note,
         createdAt: new Date(note.createdAt),
         updatedAt: new Date(note.updatedAt)
       }));
       this.notes.set(notes);
     }
   }
+
+  updateNote(updatedNote: Note) {
+  this.notes.update(notes => 
+    notes.map(note => note.id === updatedNote.id ? { ...updatedNote, updatedAt: new Date() } : note));
+  this.saveToLocalStorage();
+  }
+
 }
