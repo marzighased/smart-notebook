@@ -55,4 +55,9 @@ export class NotesService {
   this.saveToLocalStorage();
   }
 
+  deleteNote(id: string) {
+  this.notes.update(notes => notes.filter(note => note.id !== id));
+  this.saveToLocalStorage();
+  }
+
 }
