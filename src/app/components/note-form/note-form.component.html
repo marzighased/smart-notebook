@@ -1,0 +1,32 @@
+<div class="note-form-container">
+  <h2>Create New Note</h2>
+  
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input 
+        type="text" 
+        id="title" 
+        formControlName="title" 
+        placeholder="Note Title..."
+      >
+      <div class="error" *ngIf="noteForm.get('title')?.invalid && noteForm.get('title')?.touched">
+        <span *ngIf="noteForm.get('title')?.errors?.['required']">Title is required.</span>
+        <span *ngIf="noteForm.get('title')?.errors?.['minlength']">The Title must be at least 3 Characters.</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea 
+        id="content" 
+        formControlName="content" 
+        rows="10" 
+        placeholder="Note Content..." 
+      ></textarea>
+      <div class="error" *ngIf="noteForm.get('content')?.invalid && noteForm.get('content')?.touched">
+        <span *ngIf="noteForm.get('content')?.errors?.['required']">Content is required.</span>
+      </div>
+    </div>
+  </form>
+</div>
