@@ -12,6 +12,6 @@ import { NotesService } from '../../services/notes.service';
   styleUrl: './note-list.component.scss'
 })
 export class NoteListComponent {
-  private notesService = inject(NotesService);
-  notes = this.notesService.getNotes();
+  private notesService = inject(NotesService); 
+  notes = this.notesService.getNotes(); 
 }

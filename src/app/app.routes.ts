@@ -8,6 +8,6 @@ export const routes: Routes = [
   { path: 'notes', component: NoteListComponent },
   { path: 'notes/new', component: NoteFormComponent },
   { path: 'notes/:id', component: NoteDetailComponent },
-  { path: 'notes/:id/edit', component: NoteFormComponent },
+  { path: 'notes/:id/edit', component: NoteFormComponent }, 
   { path: '**', redirectTo: 'notes' } 
 ];

@@ -12,7 +12,7 @@ import { NotesService } from '../../services/notes.service';
   styleUrl: './note-form.component.scss'
 })
 
-export class NoteFormComponent {
+export class NoteFormComponent { 
   private fb = inject(FormBuilder);
   private notesService = inject(NotesService);
   private router = inject(Router);
