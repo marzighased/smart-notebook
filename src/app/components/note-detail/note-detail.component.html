@@ -1,1 +1,27 @@
-<p>note-detail works!</p> 
+<div class="note-detail-container" *ngIf="note">
+  <div class="note-header">
+    <h2>{{ note.title }}</h2>
+    <div class="note-actions">
+      <button [routerLink]="['/notes', note.id, 'edit']">Edit</button>
+      <button (click)="deleteNote()">Delete</button>
+    </div>
+  </div>
+  
+  <div class="note-content">
+    <p>{{ note.content }}</p>
+  </div>
+  
+  <div class="note-footer">
+    <div class="tags">
+      <span class="tag" *ngFor="let tag of note.tags">{{ tag }}</span>
+    </div>
+    <div class="dates">
+      <small>Created: {{ note.createdAt | date:'medium' }}</small>
+      <small>Last Update: {{ note.updatedAt | date:'medium' }}</small>
+    </div>
+  </div>
+  
+  <div class="back-link">
+    <a [routerLink]="['/notes']">Back to Notes</a>
+  </div>
+</div>
