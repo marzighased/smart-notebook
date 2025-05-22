@@ -14,4 +14,11 @@ import { NotesService } from '../../services/notes.service';
 export class NoteListComponent {
   private notesService = inject(NotesService); 
   notes = this.notesService.getNotes(); 
+
+  deleteNote(id: string, event: Event) {
+  event.stopPropagation();
+  if (confirm('Are you sure you want to delete this note?')) {
+    this.notesService.deleteNote(id);
+  }
+}
 }

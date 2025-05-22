@@ -1,11 +1,19 @@
 <div class="note-list-container">
   <div class="notes-grid" *ngIf="notes().length > 0; else noNotes">
-    <div class="note-card" *ngFor="let note of notes()">
+    <div 
+      class="note-card" 
+      *ngFor="let note of notes()" 
+      [routerLink]="['/notes', note.id]"
+    >
       <h3>{{ note.title }}</h3>
       <p>{{ note.content.length > 100 ? (note.content | slice:0:100) + '...' : note.content }}</p>
       <div class="note-footer">
         <div class="tags">
           <span class="tag" *ngFor="let tag of note.tags">{{ tag }}</span>
+        </div>
+        <div class="actions">
+          <button [routerLink]="['/notes', note.id, 'edit']" (click)="$event.stopPropagation()">Edit</button>
+          <button (click)="deleteNote(note.id, $event)">Delete</button>
         </div>
       </div>
       <small class="date">Last Update: {{ note.updatedAt | date:'short' }}</small>
